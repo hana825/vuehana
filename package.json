@@ -2,7 +2,7 @@
   "name": "vuehana",
   "version": "0.1.1",
   "private": true,
-  "homepage": "https://hana825.github.io/",
+  "homepage": "https://hana825.github.io/vuehana/",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
