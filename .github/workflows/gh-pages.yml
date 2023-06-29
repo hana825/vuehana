@@ -23,13 +23,13 @@ jobs:
       - name: Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18.x
+          node-version: 20.x
 
       - name: Install Dependencies
         run: npm install
 
       - name: Build Docs
-        run: npx vue-cli-service build
+        run: npm run build
 
       - name: Deploy Docs
         uses: peaceiris/actions-gh-pages@v3
