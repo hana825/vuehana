@@ -1,5 +1,25 @@
 <template>
-    <div class="about">
-        <h1>This is an about page</h1>
-    </div>
+  <div class="about">
+    <h2>This Site is for practicing Vue.</h2>
+    <p>
+      documentations below:<br />
+      <a href="https://ko.vuejs.org/" target="_blank" rel="noopener">vue3 korean doc</a><br />
+      <a href="https://vuejs.org/" target="_blank" rel="noopener">vue3 english doc</a><br />
+      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli doc</a>
+    </p>
+  </div>
 </template>
+
+<style scoped>
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
+a {
+  color: #42b983;
+}
+</style>
