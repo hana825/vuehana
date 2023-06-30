@@ -1,10 +1,3 @@
-<template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/cat.png" />
-    <HelloWorld msg="WELCOME" />
-  </div>
-</template>
-
 <script>
 import HelloWorld from "@/components/HelloWorld.vue";
 
@@ -15,6 +8,13 @@ export default {
   },
 };
 </script>
+
+<template>
+  <div class="home">
+    <img alt="" src="../assets/cat.png" />
+    <HelloWorld msg="WELCOME" />
+  </div>
+</template>
 
 <style lang="scss">
 .home {
