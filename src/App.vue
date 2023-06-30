@@ -1,4 +1,8 @@
 <template>
+  <header>
+    <img alt="" src="../src/assets/img/logo.png" />
+    <h1>vuehana</h1>
+  </header>
   <div id="app">
     <div id="nav">
       <!-- 네비게이션을 위해 router-link 컴포넌트를 사용한다 -->
@@ -19,6 +23,12 @@ body {
   margin: 0;
   padding: 0;
   height: 100vh;
+}
+
+header {
+  display: flex;
+  width: 100%;
+  align-items: center;
 }
 
 #app {

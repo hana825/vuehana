@@ -11,7 +11,7 @@ export default {
 
 <template>
   <div class="home">
-    <img alt="" src="../assets/cat.png" />
+    <img alt="" src="../assets/img/cat.png" />
     <HelloWorld msg="WELCOME" />
   </div>
 </template>
