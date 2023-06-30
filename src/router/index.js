@@ -6,8 +6,8 @@ import Posts from "../views/Posts.vue";
 // import MarkdownViewer from "../views/MarkdownViewer.vue";
 
 const router = createRouter({
-  // history: createWebHistory('/vuehana/'),
-  history: createWebHistory(),
+  history: createWebHistory("/vuehana/"),
+  // history: createWebHistory(),
   routes: [
     {
       path: "/",
