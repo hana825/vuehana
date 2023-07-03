@@ -2,6 +2,7 @@
 import PostList from "@/components/PostList.vue";
 import Post from "@/components/Post.vue";
 import posts from "@/utils/posts";
+
 export default {
   components: {
     PostList,
@@ -11,12 +12,13 @@ export default {
     return {
       posts: posts,
       currentPost: null,
-      isSidebarOpen: false,
+      isSidebarOpen: true,
     };
   },
   methods: {
     loadPost(post) {
       this.currentPost = post;
+      console.log("Selected post:", post);
     },
     toggleSidebar() {
       this.isSidebarOpen = !this.isSidebarOpen;
@@ -35,7 +37,7 @@ export default {
         <PostList @post-clicked="loadPost" />
       </div>
     </div>
-    <div v-if="currentPost" class="posts-body">
+    <div v-if="currentPost" :class="['posts-body', { isSidebarOpen: isSidebarOpen }]">
       <Post :title="currentPost.title" :content="currentPost.content" />
     </div>
   </div>
@@ -51,6 +53,11 @@ export default {
     }
     .posts-body {
       width: 100%;
+      height: 100%;
+      overflow-y: auto;
+    }
+    .posts-body.isSidebarOpen {
+      height: calc(100% - 100px);
     }
   }
 }
@@ -62,6 +69,10 @@ export default {
       height: 100%;
     }
     .posts-body {
+      width: 100%;
+      overflow-y: auto;
+    }
+    .posts-body.isSidebarOpen {
       width: calc(100% - 300px);
     }
   }
@@ -70,12 +81,15 @@ div.posts {
   display: flex;
   width: 100%;
   .posts-sidebar {
+    background-color: #f5f5f5;
     button {
       float: left;
       cursor: pointer;
       outline: none;
       border: none;
       padding: 6px 8px;
+      font-size: 17px;
+      color: #555;
     }
     .postlist {
       display: none;
@@ -90,6 +104,27 @@ div.posts {
     // width: 300px;
     overflow-y: auto;
     background-color: #f3f3f3;
+  }
+  .posts-body::-webkit-scrollbar {
+    width: 10px;
+    background-color: #f5f5f5;
+  }
+  .posts-body::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #aaa;
+  }
+  .posts-body::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: #f5f5f5;
+  }
+  .posts-body {
+    div {
+      width: 90%;
+      margin: auto;
+      text-align: left;
+    }
   }
 }
 </style>

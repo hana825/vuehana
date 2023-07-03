@@ -4,6 +4,7 @@ import router from "./router";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import "highlight.js/styles/github-dark-dimmed.css";
 
 library.add(faBars);
 

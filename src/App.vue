@@ -8,7 +8,7 @@
       <!-- 네비게이션을 위해 router-link 컴포넌트를 사용한다 -->
       <!-- 구체적인 속성은 `to` prop을 이용한다 -->
       <!-- 기본적으로 `<router-link>` 는 `<a>`태그로 렌더링된다 -->
-      <router-link to="/">Home</router-link> | <router-link to="/about">About</router-link> | <router-link to="/todo">Todo</router-link> |
+      <router-link to="/" @click="showConfetti">Home</router-link> | <router-link to="/about">About</router-link> | <router-link to="/todo">Todo</router-link> |
       <router-link to="/posts">Posts</router-link>
     </div>
     <!-- 라우트 아울렛 -->
@@ -17,12 +17,29 @@
   </div>
 </template>
 
+<script>
+import JSConfetti from "js-confetti";
+const confetti = new JSConfetti();
+
+export default {
+  mounted() {
+    this.showConfetti();
+  },
+  methods: {
+    showConfetti() {
+      confetti.addConfetti();
+    },
+  },
+};
+</script>
+
 <style lang="scss">
 @import "@/assets/css/common.scss";
 body {
   margin: 0;
   padding: 0;
   height: 100vh;
+  overflow: hidden;
 }
 
 header {

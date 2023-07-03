@@ -19,6 +19,7 @@ export default {
   methods: {
     emitPostClicked(post) {
       this.$emit("post-clicked", post);
+      console.log("Clicked post:", post);
     },
   },
   emits: ["post-clicked"],
