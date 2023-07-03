@@ -1,25 +1,25 @@
 <template>
   <div class="postlist" v-for="(post, i) in posts" :key="`post${i}`">
-    <button @click="emitPostClicked(post)">{{ post.title }}</button>
+    <button :class="{ selected: post === selectedPost }" @click="emitPostClicked(post)">{{ post.title }}</button>
   </div>
 </template>
 
 <script>
-import posts from "@/utils/posts";
-
 export default {
-  data() {
-    return {
-      posts: [],
-    };
-  },
-  created() {
-    this.posts = posts;
+  props: {
+    posts: {
+      type: Array,
+      required: true,
+    },
+    selectedPost: {
+      type: Object,
+      required: true,
+    },
   },
   methods: {
     emitPostClicked(post) {
       this.$emit("post-clicked", post);
-      console.log("Clicked post:", post);
+      // console.log("Clicked post:", post);
     },
   },
   emits: ["post-clicked"],
@@ -35,6 +35,11 @@ export default {
     border: none;
     padding: 6px 0;
     background-color: transparent;
+  }
+  .selected {
+    text-decoration: underline;
+    font-weight: 600;
+    color: #42b983 !important;
   }
   button:hover {
     text-decoration: underline;

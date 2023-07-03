@@ -18,7 +18,7 @@ export default {
   methods: {
     loadPost(post) {
       this.currentPost = post;
-      console.log("Selected post:", post);
+      // console.log("Selected post:", post);
     },
     toggleSidebar() {
       this.isSidebarOpen = !this.isSidebarOpen;
@@ -34,7 +34,8 @@ export default {
         <font-awesome-icon icon="bars" />
       </button>
       <div :class="['sidebar-list', { isSidebarOpen: isSidebarOpen }]">
-        <PostList @post-clicked="loadPost" />
+        <!-- <PostList @post-clicked="loadPost" /> -->
+        <PostList :posts="posts" :selected-post="currentPost" @post-clicked="loadPost" />
       </div>
     </div>
     <div v-if="currentPost" :class="['posts-body', { isSidebarOpen: isSidebarOpen }]">
@@ -90,6 +91,7 @@ div.posts {
       padding: 6px 8px;
       font-size: 17px;
       color: #555;
+      background-color: #f5f5f5;
     }
     .postlist {
       display: none;
