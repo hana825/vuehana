@@ -8,6 +8,7 @@ import Posts from "../views/Posts.vue";
 const router = createRouter({
   history: createWebHistory("/vuehana/"),
   // history: createWebHistory(),
+  // history: createWebHistory(process.env.BASE_URL),
   routes: [
     {
       path: "/",
