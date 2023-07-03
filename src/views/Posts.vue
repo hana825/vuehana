@@ -15,6 +15,11 @@ export default {
       isSidebarOpen: true,
     };
   },
+  created() {
+    if (this.posts.length > 0) {
+      this.currentPost = this.posts[0];
+    }
+  },
   methods: {
     loadPost(post) {
       this.currentPost = post;

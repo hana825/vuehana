@@ -1,7 +1,9 @@
 <template>
   <header>
-    <img alt="" src="../src/assets/img/logo.png" />
-    <h1>vuehana</h1>
+    <router-link to="/" class="title">
+      <img src="../src/assets/img/logo.png" />
+      vuehana
+    </router-link>
   </header>
   <div id="app">
     <div id="nav">
@@ -46,6 +48,14 @@ header {
   display: flex;
   width: 100%;
   align-items: center;
+  .title {
+    text-decoration: none;
+    color: #42b983;
+    font-size: 40px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+  }
 }
 
 #app {

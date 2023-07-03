@@ -1,4 +1,10 @@
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css");
-body * {
+@import url("//cdn.jsdelivr.net/gh/wan2land/d2coding/d2coding-full.css");
+
+body *:not(code.hljs) {
   font-family: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+}
+
+code.hljs {
+  font-family: "D2Coding", monospace;
 }

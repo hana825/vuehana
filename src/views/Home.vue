@@ -6,13 +6,18 @@ export default {
   components: {
     HelloWorld,
   },
+  data() {
+    return {
+      welcomeText: "WELCOME to vuehana",
+    };
+  },
 };
 </script>
 
 <template>
   <div class="home">
     <img alt="" src="../assets/img/cat.png" />
-    <HelloWorld msg="WELCOME" />
+    <HelloWorld :msg="welcomeText" />
   </div>
 </template>
 
