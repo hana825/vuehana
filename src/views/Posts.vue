@@ -10,14 +10,26 @@ export default {
   },
   data() {
     return {
-      posts: posts,
+      allPosts: posts,
       currentPost: null,
       isSidebarOpen: true,
     };
   },
+  computed: {
+    filteredPosts() {
+      return this.allPosts
+        .filter((post) => !post.isFolder)
+        .map((post) => {
+          return {
+            ...post,
+            title: post.name.replace(/\.md$/, ""),
+          };
+        });
+    },
+  },
   created() {
-    if (this.posts.length > 0) {
-      this.currentPost = this.posts[0];
+    if (this.filteredPosts.length > 0) {
+      this.currentPost = this.filteredPosts[0];
     }
   },
   methods: {
@@ -39,8 +51,7 @@ export default {
         <font-awesome-icon icon="bars" />
       </button>
       <div :class="['sidebar-list', { isSidebarOpen: isSidebarOpen }]">
-        <!-- <PostList @post-clicked="loadPost" /> -->
-        <PostList :posts="posts" :selected-post="currentPost" @post-clicked="loadPost" />
+        <PostList :posts="filteredPosts" :selected-post="currentPost" @post-clicked="loadPost" />
       </div>
     </div>
     <div v-if="currentPost" :class="['posts-body', { isSidebarOpen: isSidebarOpen }]">
@@ -110,6 +121,7 @@ div.posts {
   .posts-sidebar.isSidebarOpen {
     // width: 300px;
     overflow-y: auto;
+    overflow-x: hidden;
     background-color: #f3f3f3;
   }
   .posts-body::-webkit-scrollbar {

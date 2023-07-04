@@ -58,6 +58,11 @@ header {
   }
 }
 
+::selection {
+  background-color: #42b983;
+  color: #fff;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
