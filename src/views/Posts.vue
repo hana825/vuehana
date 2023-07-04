@@ -2,11 +2,13 @@
 import PostList from "@/components/PostList.vue";
 import Post from "@/components/Post.vue";
 import posts from "@/utils/posts";
+import ScrollToTop from "@/components/ScrollToTop.vue";
 
 export default {
   components: {
     PostList,
     Post,
+    ScrollToTop,
   },
   data() {
     return {
@@ -58,6 +60,7 @@ export default {
       <Post :title="currentPost.title" :content="currentPost.content" />
     </div>
   </div>
+  <ScrollToTop />
 </template>
 
 <style lang="scss">
@@ -143,6 +146,7 @@ div.posts {
       width: 90%;
       margin: auto;
       text-align: left;
+      padding-bottom: 20px;
       blockquote {
         border-left: 5px solid #42b983;
         background-color: #f5f5f5;
@@ -163,6 +167,12 @@ div.posts {
       }
       a:hover {
         text-decoration: underline;
+      }
+      img {
+        width: 100%;
+      }
+      * {
+        word-break: break-all;
       }
     }
   }
