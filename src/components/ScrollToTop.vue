@@ -39,5 +39,8 @@ span.scrollTop {
   width: 20px;
   height: 20px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 </style>

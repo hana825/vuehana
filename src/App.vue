@@ -37,6 +37,7 @@ export default {
 
 <style lang="scss">
 @import "@/assets/css/common.scss";
+
 body {
   margin: 0;
   padding: 0;
@@ -50,7 +51,7 @@ header {
   align-items: center;
   .title {
     text-decoration: none;
-    color: #42b983;
+    color: $main-color;
     font-size: 40px;
     font-weight: 600;
     display: flex;
@@ -59,7 +60,7 @@ header {
 }
 
 ::selection {
-  background-color: #42b983;
+  background-color: $main-color;
   color: #fff;
 }
 
@@ -68,7 +69,7 @@ header {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: $navy-color;
   display: flex;
   flex-wrap: wrap;
   width: 100%;
@@ -93,10 +94,10 @@ header {
   // box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
   a {
     font-weight: bold;
-    color: #2c3e50;
+    color: $navy-color;
 
     &.router-link-exact-active {
-      color: #42b983;
+      color: $main-color;
     }
   }
 }
