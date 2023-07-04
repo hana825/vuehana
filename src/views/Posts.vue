@@ -131,6 +131,27 @@ div.posts {
       width: 90%;
       margin: auto;
       text-align: left;
+      blockquote {
+        border-left: 5px solid #42b983;
+        background-color: #f5f5f5;
+        margin: 0;
+        padding: 0.5em 1em;
+      }
+      code:not(.hljs) {
+        background-color: #eee;
+        border-radius: 0.5em;
+        padding: 0.2em 0.3em;
+        font-weight: 600;
+        color: #2c3e50;
+      }
+      a {
+        text-decoration: none;
+        color: #42b983;
+        font-weight: 600;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
     }
   }
 }
