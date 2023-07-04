@@ -26,15 +26,17 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+@import "@/assets/css/common.scss";
+
 span.scrollTop {
   position: fixed;
   bottom: 20px;
   right: 30px;
   padding: 10px;
   font-size: 20px;
-  color: #fff;
-  background-color: #42b983;
+  color: $white-color;
+  background-color: $main-color;
   border-radius: 50%;
   width: 20px;
   height: 20px;

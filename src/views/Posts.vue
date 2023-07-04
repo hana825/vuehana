@@ -64,6 +64,8 @@ export default {
 </template>
 
 <style lang="scss">
+@import "@/assets/css/common.scss";
+
 @media only screen and (min-width: 320px) and (max-width: 480px) {
   div.posts {
     flex-direction: column;
@@ -101,16 +103,17 @@ div.posts {
   display: flex;
   width: 100%;
   .posts-sidebar {
-    background-color: #f5f5f5;
+    background-color: $f5-gray-color;
     button {
       float: left;
       cursor: pointer;
       outline: none;
       border: none;
+      text-align: left;
       padding: 6px 8px;
       font-size: 17px;
-      color: #555;
-      background-color: #f5f5f5;
+      color: $gray-color;
+      background-color: $f5-gray-color;
     }
     .postlist {
       display: none;
@@ -119,27 +122,28 @@ div.posts {
   .sidebar-list.isSidebarOpen {
     .postlist {
       display: block;
+      padding-left: 10px;
     }
   }
   .posts-sidebar.isSidebarOpen {
     // width: 300px;
     overflow-y: auto;
     overflow-x: hidden;
-    background-color: #f3f3f3;
+    background-color: $f3-gray-color;
   }
   .posts-body::-webkit-scrollbar {
     width: 10px;
-    background-color: #f5f5f5;
+    background-color: $f5-gray-color;
   }
   .posts-body::-webkit-scrollbar-thumb {
     border-radius: 10px;
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    background-color: #aaa;
+    background-color: $a-gray-color;
   }
   .posts-body::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
-    background-color: #f5f5f5;
+    background-color: $f5-gray-color;
   }
   .posts-body {
     div {
@@ -148,21 +152,21 @@ div.posts {
       text-align: left;
       padding-bottom: 20px;
       blockquote {
-        border-left: 5px solid #42b983;
-        background-color: #f5f5f5;
+        border-left: 5px solid $main-color;
+        background-color: $f5-gray-color;
         margin: 0;
         padding: 0.5em 1em;
       }
       code:not(.hljs) {
-        background-color: #eee;
+        background-color: $e-gray-color;
         border-radius: 0.5em;
         padding: 0.2em 0.3em;
         font-weight: 600;
-        color: #2c3e50;
+        color: $navy-color;
       }
       a {
         text-decoration: none;
-        color: #42b983;
+        color: $main-color;
         font-weight: 600;
       }
       a:hover {

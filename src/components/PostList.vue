@@ -80,6 +80,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import "@/assets/css/common.scss";
+
 .postlist {
   ul {
     list-style-type: none;
@@ -91,14 +93,14 @@ export default {
     font-weight: bold;
     display: flex;
     width: 100%;
-    justify-content: center;
+    justify-content: flex-start;
     padding: 6px 0;
   }
 
   .selected {
     text-decoration: underline;
     font-weight: 600;
-    color: #42b983 !important;
+    color: $main-color !important;
   }
 
   button {

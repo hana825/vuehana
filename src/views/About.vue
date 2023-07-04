@@ -10,7 +10,9 @@
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+@import "@/assets/css/common.scss";
+
 ul {
   list-style-type: none;
   padding: 0;
@@ -20,6 +22,6 @@ li {
   margin: 0 10px;
 }
 a {
-  color: #42b983;
+  color: $main-color;
 }
 </style>

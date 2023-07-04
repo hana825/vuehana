@@ -53,6 +53,8 @@ export default {
 </template>
 
 <style lang="scss">
+@import "@/assets/css/common.scss";
+
 .todo {
   display: flex;
   flex-direction: column;
@@ -65,28 +67,28 @@ export default {
   }
   button {
     margin-top: 10px;
-    background-color: #f8f9fa;
-    border: 1px solid #f8f9fa;
+    background-color: $almost-white-color;
+    border: 1px solid $almost-white-color;
     border-radius: 4px;
-    color: #3c4043;
+    color: $dark-gray-color;
     padding: 8px 16px;
     cursor: pointer;
   }
   button:hover {
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-    background-color: #f8f9fa;
-    border: 1px solid #dadce0;
-    color: #202124;
+    background-color: $almost-white-color;
+    border: 1px solid $light-gray-color;
+    color: $dark-gray-color;
   }
   input[type="text"] {
     outline: none;
-    border: 1px solid #dfe1e5;
+    border: 1px solid $light-gray-color;
     border-radius: 24px;
     min-height: 24px;
     padding: 5px 8px 5px 14px;
   }
   input[type="text"]:hover {
-    background-color: #fff;
+    background-color: $white-color;
     box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
     border-color: rgba(223, 225, 229, 0);
   }
@@ -96,7 +98,7 @@ export default {
   }
   .done {
     text-decoration: line-through;
-    color: #3c4043;
+    color: $gray-color;
   }
 }
 </style>

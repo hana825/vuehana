@@ -4,6 +4,7 @@
       <img src="../src/assets/img/logo.png" />
       vuehana
     </router-link>
+    <ThemeChange />
   </header>
   <div id="app">
     <div id="nav">
@@ -20,10 +21,14 @@
 </template>
 
 <script>
+import ThemeChange from "./components/ThemeChange.vue";
 import JSConfetti from "js-confetti";
 const confetti = new JSConfetti();
 
 export default {
+  components: {
+    ThemeChange,
+  },
   mounted() {
     this.showConfetti();
   },
@@ -61,7 +66,7 @@ header {
 
 ::selection {
   background-color: $main-color;
-  color: #fff;
+  color: $white-color;
 }
 
 #app {
@@ -89,7 +94,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #fff;
+  background-color: $white-color;
   gap: 10px;
   // box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
   a {
