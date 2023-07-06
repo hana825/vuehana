@@ -12,7 +12,7 @@
       <!-- 구체적인 속성은 `to` prop을 이용한다 -->
       <!-- 기본적으로 `<router-link>` 는 `<a>`태그로 렌더링된다 -->
       <router-link to="/" @click="showConfetti">Home</router-link> | <router-link to="/about">About</router-link> | <router-link to="/todo">Todo</router-link> |
-      <router-link to="/posts">Posts</router-link> | <router-link to="/kakao">Kakao</router-link>
+      <router-link to="/posts">Posts</router-link> | <router-link to="/login">Login</router-link>
     </div>
     <!-- 라우트 아울렛 -->
     <!-- 현재 라우트에 맞는 컴포넌트가 렌더링된다 -->

@@ -1,6 +1,7 @@
 <template>
-  <div :class="{ 'dark-theme': isDarkTheme }">
-    <input type="checkbox" id="toggle" v-model="isDarkTheme" hidden />
+  <!-- <div :class="{ 'dark-theme': isDarkTheme }"> -->
+  <div>
+    <input type="checkbox" id="toggle" v-model="isLightTheme" hidden />
     <label for="toggle" class="toggleSwitch">
       <span class="toggleButton"></span>
     </label>
@@ -11,25 +12,25 @@
 export default {
   data() {
     return {
-      isDarkTheme: false,
+      isLightTheme: false,
     };
   },
   watch: {
-    isDarkTheme(newVal) {
-      document.body.dataset.theme = newVal ? "dark" : "light";
+    isLightTheme(newVal) {
+      document.body.dataset.theme = newVal ? "light" : "dark";
     },
   },
   mounted() {
     let theme = document.body.dataset.theme;
     if (!theme) {
-      if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-        theme = "dark";
-      } else {
+      if (window.matchMedia("(prefers-color-scheme: light)").matches) {
         theme = "light";
+      } else {
+        theme = "dark";
       }
       document.body.dataset.theme = theme;
     }
-    this.isDarkTheme = theme === "dark";
+    this.isLightTheme = theme === "light";
   },
 };
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="kakao-login-container">
     <a id="custom-login-btn" @click="kakaoLogin()">
       <img src="https://k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg" width="222" alt="카카오 로그인 버튼" />
     </a>
@@ -30,9 +30,9 @@ export default {
         url: "/v2/user/me",
         success: (res) => {
           const kakao_account = res.kakao_account;
-          const nickname = kakao_account.profile.nickname;
+          // const nickname = kakao_account.profile.nickname;
           const email = kakao_account.email;
-          console.log("nickname", nickname);
+          // console.log("nickname", nickname);
           console.log("email", email);
 
           //로그인처리구현
@@ -107,3 +107,11 @@ export default {
   },
 };
 </script>
+<style scoped lang="scss">
+.kakao-login-container {
+  a,
+  div {
+    cursor: pointer;
+  }
+}
+</style>

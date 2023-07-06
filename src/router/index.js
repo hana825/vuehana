@@ -3,7 +3,7 @@ import Home from "../views/Home.vue";
 import About from "../views/About.vue";
 import Todo from "../views/Todo.vue";
 import Posts from "../views/Posts.vue";
-import KakaoLogin from "../views/KakaoLogin.vue";
+import Login from "../views/Login.vue";
 
 const router = createRouter({
   // history: createWebHashHistory("/vuehana/"),
@@ -30,9 +30,9 @@ const router = createRouter({
       component: Posts,
     },
     {
-      path: "/kakao",
-      name: "Kakao",
-      component: KakaoLogin,
+      path: "/login",
+      name: "Login",
+      component: Login,
     },
   ],
 });

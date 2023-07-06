@@ -146,11 +146,15 @@ div.posts {
     background-color: $f5-gray-color;
   }
   .posts-body {
+    padding-bottom: 50px;
     div {
       width: 90%;
       margin: auto;
       text-align: left;
       padding-bottom: 20px;
+      p {
+        line-height: 1.6;
+      }
       blockquote {
         border-left: 5px solid $main-color;
         background-color: $f5-gray-color;
