@@ -42,6 +42,15 @@ export default {
     toggleSidebar() {
       this.isSidebarOpen = !this.isSidebarOpen;
     },
+    scrollToTop() {
+      const postsBody = document.querySelector(".posts-body");
+      if (postsBody) {
+        postsBody.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      }
+    },
   },
 };
 </script>
@@ -53,7 +62,7 @@ export default {
         <font-awesome-icon icon="bars" />
       </button>
       <div :class="['sidebar-list', { isSidebarOpen: isSidebarOpen }]">
-        <PostList :posts="filteredPosts" :selected-post="currentPost" @post-clicked="loadPost" />
+        <PostList :posts="filteredPosts" :selected-post="currentPost" @post-clicked="loadPost" @click="scrollToTop" />
       </div>
     </div>
     <div v-if="currentPost" :class="['posts-body', { isSidebarOpen: isSidebarOpen }]">
