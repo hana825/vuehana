@@ -14,4 +14,5 @@ app.use(router);
 app.component("font-awesome-icon", FontAwesomeIcon);
 app.mount("#app");
 
-window.Kakao.init(process.env.KAKAO_API_KEY);
+// window.Kakao.init(process.env.KAKAO_API_KEY);
+window.Kakao.init("f95e6ebd9c630d65b9b6e35f3a025f1d");
