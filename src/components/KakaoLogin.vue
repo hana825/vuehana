@@ -24,6 +24,10 @@ export default {
         scope: "profile_image, account_email",
         success: this.getKakaoAccount,
       });
+      // const params = {
+      //   redirectUri: "http://localhost:8080/login",
+      // };
+      // window.Kakao.Auth.authorize(params);
     },
     getKakaoAccount() {
       window.Kakao.API.request({
@@ -46,28 +50,12 @@ export default {
     },
     displayToken() {
       const token = this.getCookie("authorize-access-token");
-
-      // if (token) {
-      //   window.Kakao.Auth.setAccessToken(token);
-      //   window.Kakao.Auth.getStatusInfo()
-      //     .then((res) => {
-      //       if (res.status === "connected") {
-      //         this.tokenResult = "login success, token: " + window.Kakao.Auth.getAccessToken();
-      //       }
-      //     })
-      //     // .catch(() => {
-      //     //   window.Kakao.Auth.setAccessToken(null);
-      //     // });
-      //     .catch((err) => {
-      //       console.log(err);
-      //       this.clearToken();
-      //     });
-      // }
       if (token) {
         window.Kakao.Auth.setAccessToken(token);
         window.Kakao.Auth.getStatusInfo({
           success: (res) => {
             if (res.status === "connected") {
+              console.log("this", window.Kakao.Auth.getAccessToken());
               this.tokenResult = "login success, token: " + window.Kakao.Auth.getAccessToken();
             }
           },
@@ -84,11 +72,6 @@ export default {
       }
     },
     kakaoLogout() {
-      // window.Kakao.Auth.logout((res) => {
-      //   console.log(res);
-      //   // 쿠키 제거하기
-      //   this.deleteCookie();
-      // });
       // 연결 끊기
       window.Kakao.API.request({
         url: "/v1/user/unlink",
