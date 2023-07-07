@@ -161,7 +161,8 @@ div.posts {
       margin: auto;
       text-align: left;
       padding-bottom: 20px;
-      p {
+      p,
+      li {
         line-height: 1.6;
       }
       blockquote {
