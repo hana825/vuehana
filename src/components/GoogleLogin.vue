@@ -16,7 +16,7 @@ const callback = (response) => {
   <GoogleLogin :callback="callback" prompt auto-login />
 </template> -->
 
-<!-- <template>
+<template>
   <div>
     <h1>{{ isLoggedIn.value ? "Welcome " + userName : "Login Page" }}</h1>
     <GoogleLogin :callback="handleLogin" prompt="select_account" />
@@ -49,53 +49,5 @@ const handleLogout = () => {
   isLoggedIn.value = false;
   userName.value = "";
   googleLogout();
-};
-</script> -->
-
-<template>
-  <div>
-    <h1>{{ isLoggedIn ? "Welcome " + userName : "Login Page" }}</h1>
-    <GoogleLogin :clientId="clientId" :scope="scope" @success="handleLogin" @failure="handleLoginFailure" buttonText="Login with Google" />
-    <div v-if="isLoggedIn" @click="handleLogout">Logout</div>
-  </div>
-</template>
-
-<script setup>
-import { ref } from "vue";
-import { useGoogleLogin } from "vue3-google-login";
-
-const isLoggedIn = ref(false);
-const userName = ref("");
-
-const clientId = "670480048319-ano7b50ulffmb20fl9v4513nksar2h30.apps.googleusercontent.com";
-const scope = "email profile openid";
-
-const { signIn, prompt } = useGoogleLogin({
-  clientId,
-  scope,
-  onRequestSuccess: (response) => {
-    console.log("Login response:", response);
-    const userData = response.profileObj;
-    console.log("User data:", userData);
-
-    if (userData && userData.email) {
-      isLoggedIn.value = true;
-      userName.value = userData.name;
-    } else {
-      isLoggedIn.value = false;
-    }
-  },
-  onRequestFailure: (error) => {
-    console.error("Login error:", error);
-  },
-});
-
-const handleLogin = () => {
-  signIn(prompt);
-};
-
-const handleLogout = () => {
-  isLoggedIn.value = false;
-  userName.value = "";
 };
 </script>
