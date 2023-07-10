@@ -37,7 +37,7 @@ const handleLogin = (response) => {
   console.log("Decoded user data:", userData);
 
   // 이미 로그인 되었는지 체크
-  if (response.isSignedIn) {
+  if (userData && userData.sub) {
     isLoggedIn.value = true;
     userName.value = userData.name;
   } else {
