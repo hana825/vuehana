@@ -25,9 +25,8 @@ const callback = (response) => {
 </template>
 
 <script setup>
-import { ref } from "vue";
 import { decodeCredential } from "vue3-google-login";
-import { googleLogout } from "vue3-google-login";
+import { ref, googleLogout } from "vue3-google-login";
 
 const isLoggedIn = ref(false);
 const userName = ref("");
