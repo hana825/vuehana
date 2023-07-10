@@ -18,16 +18,19 @@ const callback = (response) => {
 
 <template>
   <div>
-    <h1>Login Page</h1>
+    <h1>{{ isLoggedIn.value ? "Welcome " + userName : "Login Page" }}</h1>
     <GoogleLogin :callback="handleLogin" prompt="select_account" />
+    <div v-if="isLoggedIn.value" @click="handleLogout">Logout</div>
   </div>
 </template>
 
 <script setup>
 import { ref } from "vue";
 import { decodeCredential } from "vue3-google-login";
+import { googleLogout } from "vue3-google-login";
 
 const isLoggedIn = ref(false);
+const userName = ref("");
 
 const handleLogin = (response) => {
   console.log("Login response:", response);
@@ -37,9 +40,15 @@ const handleLogin = (response) => {
     isLoggedIn.value = true;
     const userData = decodeCredential(response.credential);
     console.log("Decoded user data:", userData);
-    // 추가 처리 하거나 다른 페이지 이동..
+    userName.value = userData.name;
   } else {
     isLoggedIn.value = false;
   }
+};
+
+const handleLogout = () => {
+  isLoggedIn.value = false;
+  userName.value = "";
+  googleLogout();
 };
 </script>
