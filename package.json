@@ -43,7 +43,8 @@
     "vue-typed-js": "^0.1.2",
     "vue-typewriter": "^2.2.1",
     "vue-typewriter-effect": "^1.0.1",
-    "vue-writer": "^1.2.0"
+    "vue-writer": "^1.2.0",
+    "vue3-google-login": "^2.0.18"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",

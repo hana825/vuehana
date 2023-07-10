@@ -6,11 +6,15 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import "highlight.js/styles/github-dark-dimmed.css";
 import dotenv from "dotenv";
+import vue3GoogleLogin from "vue3-google-login";
 dotenv.config();
 library.add(faBars);
 
 const app = createApp(App);
 app.use(router);
+app.use(vue3GoogleLogin, {
+  clientId: "process.env.GOOGLE_CLIENT_ID,",
+});
 app.component("font-awesome-icon", FontAwesomeIcon);
 app.mount("#app");
 

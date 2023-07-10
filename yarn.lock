@@ -6921,7 +6921,7 @@
   "resolved" "https://registry.npmjs.org/vue-writer/-/vue-writer-1.2.0.tgz"
   "version" "1.2.0"
 
-"vue@*", "vue@^2 || ^3.2.13", "vue@^3.0.5", "vue@^3.2.0", "vue@^3.2.13", "vue@^3.2.45", "vue@>= 3.0.0 < 4", "vue@3.3.4":
+"vue@*", "vue@^2 || ^3.2.13", "vue@^3.0.3", "vue@^3.0.5", "vue@^3.2.0", "vue@^3.2.13", "vue@^3.2.45", "vue@>= 3.0.0 < 4", "vue@3.3.4":
   "integrity" "sha512-VTyEYn3yvIeY1Py0WaYGZsXnz3y5UnGi62GjVEqvEGPl6nxbOrCXbVOTQWBEJUqAyTUk2uJ5JLVnYJ6ZzGbrSw=="
   "resolved" "https://registry.npmjs.org/vue/-/vue-3.3.4.tgz"
   "version" "3.3.4"
@@ -6939,6 +6939,11 @@
   dependencies:
     "@vue/compiler-sfc" "2.7.14"
     "csstype" "^3.1.0"
+
+"vue3-google-login@^2.0.18":
+  "integrity" "sha512-KB9ppTijUuWk0gaA0b8bD/9tGZiQXM4qxjLG8QplipIiHJRKPmj2LkzAQUkM2OZUYjtPMbmoY1VbF+XwdVnTrw=="
+  "resolved" "https://registry.npmjs.org/vue3-google-login/-/vue3-google-login-2.0.18.tgz"
+  "version" "2.0.18"
 
 "watchpack@^2.4.0":
   "integrity" "sha512-Lcvm7MGST/4fup+ifyKi2hjyIAwcdI4HRgtvTpIUxBRhB+RFtUh8XtDOxUfctVCnhVi+QQj49i91OyvzkJl6cg=="
