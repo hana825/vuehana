@@ -13,7 +13,7 @@ library.add(faBars);
 const app = createApp(App);
 app.use(router);
 app.use(vue3GoogleLogin, {
-  clientId: "process.env.GOOGLE_CLIENT_ID,",
+  clientId: "670480048319-ano7b50ulffmb20fl9v4513nksar2h30.apps.googleusercontent.com",
 });
 app.component("font-awesome-icon", FontAwesomeIcon);
 app.mount("#app");
