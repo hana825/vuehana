@@ -67,7 +67,7 @@ import { useGoogleLogin } from "vue3-google-login";
 const isLoggedIn = ref(false);
 const userName = ref("");
 
-const clientId = "YOUR_GOOGLE_CLIENT_ID";
+const clientId = "670480048319-ano7b50ulffmb20fl9v4513nksar2h30.apps.googleusercontent.com";
 const scope = "email profile openid";
 
 const { signIn, prompt } = useGoogleLogin({
