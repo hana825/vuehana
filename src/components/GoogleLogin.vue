@@ -18,7 +18,7 @@ const callback = (response) => {
 
 <template>
   <div>
-    <h1>{{ isLoggedIn.value ? "Welcome " + userName : "Login Page" }}</h1>
+    <!-- <h1>{{ isLoggedIn.value ? "Welcome " + userName : "Login Page" }}</h1> -->
     <GoogleLogin :callback="handleLogin" prompt="select_account" />
     <div v-if="isLoggedIn.value" @click="handleLogout">Logout</div>
   </div>
@@ -38,10 +38,10 @@ const handleLogin = (response) => {
 
   // 이미 로그인 되었는지 체크
   if (userData && userData.sub) {
-    isLoggedIn.value = true;
+    // isLoggedIn.value = true;
     userName.value = userData.name;
   } else {
-    isLoggedIn.value = false;
+    // isLoggedIn.value = false;
   }
 };
 

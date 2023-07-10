@@ -1,17 +1,17 @@
 <script>
 import KakaoLogin from "@/components/KakaoLogin.vue";
-// import GoogleLogin from "@/components/GoogleLogin.vue";
+import GoogleLogin from "@/components/GoogleLogin.vue";
 import NaverLogin from "@/components/NaverLogin.vue";
 export default {
   components: {
     KakaoLogin,
-    // GoogleLogin,
+    GoogleLogin,
     NaverLogin,
   },
 };
 </script>
 <template>
   <KakaoLogin />
-  <!-- <GoogleLogin /> -->
+  <GoogleLogin />
   <NaverLogin />
 </template>
