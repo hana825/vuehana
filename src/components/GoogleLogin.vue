@@ -34,12 +34,12 @@ const userName = ref("");
 
 const handleLogin = (response) => {
   console.log("Login response:", response);
+  const userData = decodeCredential(response.credential);
+  console.log("Decoded user data:", userData);
 
   // 이미 로그인 되었는지 체크
   if (response.isSignedIn) {
     isLoggedIn.value = true;
-    const userData = decodeCredential(response.credential);
-    console.log("Decoded user data:", userData);
     userName.value = userData.name;
   } else {
     isLoggedIn.value = false;
