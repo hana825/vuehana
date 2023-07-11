@@ -15,7 +15,7 @@ export default {
     const state = {
       naverClientId: "xk1FLVI8K5MX2DZgusG5",
       naverClientSecret: process.env.NAVER_CLIENT_SECRET,
-      callbackUrl: "http://localhost:8080/login",
+      callbackUrl: "https://hana825.github.io/vuehana/#/login",
       state: "",
       code: "",
     };
