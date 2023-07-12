@@ -6,16 +6,13 @@
 
 <script>
 import axios from "axios";
-// import { useRoute } from "vue-router";
 
 export default {
   setup() {
-    // const route = useRoute();
-
     const state = {
-      naverClientId: "xk1FLVI8K5MX2DZgusG5",
-      naverClientSecret: process.env.NAVER_CLIENT_SECRET,
-      callbackUrl: "https://hana825.github.io/vuehana/#/login",
+      naverClientId: "1kyB11QJ8TvrRLXOgTpA",
+      naverClientSecret: "bp3EKombG8",
+      callbackUrl: "http://localhost:8080/#/login",
       state: "",
       code: "",
     };
@@ -32,37 +29,36 @@ export default {
 
       if (state.code) {
         console.log("Authorization Code:", state.code);
+        getAccessToken();
       }
     };
 
-    getCodeFromCallbackUrl();
-
     const getAccessToken = async () => {
-      if (state.code) {
-        try {
-          const response = await axios.get(`https://nid.naver.com/oauth2.0/token`, {
-            params: {
-              grant_type: "authorization_code",
-              client_id: state.naverClientId,
-              client_secret: state.naverClientSecret,
-              code: state.code,
-              state: state.state,
-            },
-          });
-          const accessToken = response.data.access_token;
-          if (accessToken) {
-            checkAccessToken(accessToken);
-          }
-        } catch (error) {
-          console.error("Error:", error);
+      try {
+        const response = await axios.get(`https://nid.naver.com/oauth2.0/token`, {
+          params: {
+            grant_type: "authorization_code",
+            client_id: state.naverClientId,
+            client_secret: state.naverClientSecret,
+            code: state.code,
+            state: state.state,
+          },
+          headers: { "Access-Control-Allow-Origin": "http://localhost:8080/", "Access-Control-Allow-Credentials": "true" },
+        });
+        console.log("Access Token Response:", response.data);
+        const accessToken = response.data.access_token;
+        if (accessToken) {
+          checkAccessToken(accessToken);
         }
+      } catch (error) {
+        console.error("Error:", error);
       }
     };
 
     const checkAccessToken = (token) => {
       axios
         .get("https://openapi.naver.com/v1/nid/me", {
-          headers: { Authorization: `Bearer ${token}` },
+          headers: { Authorization: `Bearer ${token}`, "Access-Control-Allow-Origin": "http://localhost:8080/", "Access-Control-Allow-Credentials": "true" },
         })
         .then((response) => {
           console.log("User Profile:", response.data);
@@ -72,7 +68,7 @@ export default {
         });
     };
 
-    getAccessToken();
+    getCodeFromCallbackUrl();
 
     return {
       handleNaverLogin,
