@@ -116,3 +116,44 @@ export default {
 ```
 
 counter와 같은 기능이 필요한 다른 컴포넌트에 `import`해서 `useCounter`를 사용할 수 있다.
+
+&nbsp;
+
+## 데이터의 선언
+
+- Vue2  
+  Vue2에서 컴포넌트의 data를 선언하고 정의하는 일반적인 방법은 `data`옵션을 object로 사용하는 것이다.
+  `data` 옵션은 컴포넌트의 data 속성을 포함하는 object를 return 해주는 함수이다.
+
+```
+export default {
+  data() {
+    return {
+      message: 'Hello, Vue!',
+      count: 0,
+    };
+  },
+};
+```
+
+- Vue3  
+  Vue3에서 Composition API는 `setup`기능을 사용하여 data를 정의하는 방법을 도입했다. `data` 옵션을 사용하는 대신 `ref` 또는 `reactive` 함수를 사용해서 `setup` 함수 내부에 반응형 data 속성을 선언한다.
+
+```
+import { ref } from 'vue';
+
+export default {
+  setup() {
+    const message = ref('Hello, Vue!');
+    const count = ref(0);
+
+    // 선택적으로 access 해야 하는 data 속성(properties)을 return 할 수 있다.
+    return {
+      message,
+      count,
+    };
+  },
+};
+```
+
+`ref`함수를 사용해서 single data 속성에 대한 반응형 참조를 생성하거나, `reactive`함수를 사용하여 multiple data 속성에 대한 반응형 object를 생성할 수 있다.
