@@ -25,6 +25,8 @@ Composition API는 `setup()`이라는 메서드 안에서 이들을 그룹핑하
 또한, 반복되는 코드들을 별도의 hooks로 모듈화하고 컴포넌트 내에서 import해서 사용할 수 있기 때문에 코드의 재사용성 면에서도 유리한 문법이다.  
 Vue2의 `mixin`으로 컴포넌트 로직을 어느정도 재사용할 수 있었지만, 오버라이딩이나 다중 믹스인을 상속하면 컴포넌트 관리가 어려워지는 단점들이 존재한다.
 
+&nbsp;
+
 ### 예시
 
 basic counter component without using Composition API :
@@ -58,6 +60,31 @@ export default {
 </script>
 ```
 
+create the `useCounter` hook in a separate file :
+
+```
+// useCounter.js
+import { ref } from 'vue';
+
+export default function useCounter() {
+  const count = ref(0);
+
+  function increment() {
+    count.value++;
+  }
+
+  function decrement() {
+    count.value--;
+  }
+
+  return {
+    count,
+    increment,
+    decrement,
+  };
+}
+```
+
 refactor the code to use Composition API and create reusable hook for the counter logic :
 
 ```
@@ -86,31 +113,6 @@ export default {
   },
 };
 </script>
-```
-
-create the `useCounter` hook in a separate file :
-
-```
-// useCounter.js
-import { ref } from 'vue';
-
-export default function useCounter() {
-  const count = ref(0);
-
-  function increment() {
-    count.value++;
-  }
-
-  function decrement() {
-    count.value--;
-  }
-
-  return {
-    count,
-    increment,
-    decrement,
-  };
-}
 ```
 
 counter와 같은 기능이 필요한 다른 컴포넌트에 `import`해서 `useCounter`를 사용할 수 있다.
