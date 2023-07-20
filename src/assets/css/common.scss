@@ -5,8 +5,9 @@ body *:not(code.hljs) {
   font-family: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
 }
 
-code.hljs {
-  font-family: "D2Coding", monospace;
+pre code.hljs * {
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+  // font-family: "D2Coding", monospace;
 }
 
 $main-color: #42b983;
