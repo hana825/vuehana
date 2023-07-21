@@ -4,12 +4,12 @@
     <HelloWorld :msg="welcomeText" />
     <button @click="isOpen = true">주인장에게 전할 말..</button>
     <Teleport to="body">
-      <div v-if="isOpen" class="modal">
+      <div v-if="isOpen || showEmailModal" class="modal">
         <div>
           <div>
             <button @click="isOpen = false">X</button>
           </div>
-          <SendEmail />
+          <SendEmail :closeModal="closeModal" />
         </div>
       </div>
     </Teleport>
@@ -31,9 +31,14 @@ export default {
     const welcomeText = "WELCOME to vuehana";
     const isOpen = ref(false);
 
+     function closeModal() {
+      isOpen.value = false;
+    }
+
     return {
       welcomeText,
       isOpen,
+      closeModal,
     };
   },
 };

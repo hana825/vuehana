@@ -3,7 +3,7 @@
     <input v-model="from" :class="{ 'is-invalid': (isFormSubmitted && !isValid(from)) }" type="text" placeholder="* From"/>
     <input v-model="to" :class="{ 'is-invalid': (isFormSubmitted && !isValid(to)) }" type="text" placeholder="* To"/>
     <textarea v-model="message" :class="{ 'is-invalid': (isFormSubmitted && !isValid(message)) }" rows="5" placeholder="* Message"></textarea>
-    <input v-model="email" type="email" placeholder="Your Email address" />
+    <input v-model="email" :class="{ 'is-invalid': (isFormSubmitted && !isValid(email)) }" type="email" placeholder="Your Email address" />
     <button @click="submitForm">send mail</button>
   </div>
 </template>
@@ -13,7 +13,10 @@ import { ref } from "vue";
 import emailjs from "emailjs-com";
 
 export default {
-  setup() {
+  props: {
+    closeModal: Function,
+  },
+  setup(props) {
     const from = ref("");
     const to = ref("");
     const email = ref("");
@@ -32,7 +35,7 @@ export default {
       isFormSubmitted.value = true;
 
       if (!isValid(from.value) || !isValid(to.value) || !isValid(message.value) || !isValid(email.value)) {
-        alert("email 뺴고는 다 입력해주라~~!");
+        alert("다 입력해주세요~~!");
         return;
       }
 
@@ -48,6 +51,7 @@ export default {
         .then(({ status }) => {
           if (status === 200) {
             alert("전송되었습니다!");
+            props.closeModal();
           } else {
             alert("전송에 실패했습니다!");
           }
