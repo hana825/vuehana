@@ -2,11 +2,13 @@
   <div class="home">
     <img alt="" src="../assets/img/cat.png" />
     <HelloWorld :msg="welcomeText" />
-    <button @click="isOpen = true">send mail</button>
+    <button @click="isOpen = true">주인장에게 전할 말..</button>
     <Teleport to="body">
       <div v-if="isOpen" class="modal">
         <div>
-          <button @click="isOpen = false">X</button>
+          <div>
+            <button @click="isOpen = false">X</button>
+          </div>
           <SendEmail />
         </div>
       </div>
@@ -38,6 +40,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import "@/assets/css/common.scss";
+
 .home {
   img {
     object-fit: contain;
@@ -45,6 +49,23 @@ export default {
     height: 150px;
   }
 }
+
+  button {
+    margin-top: 10px;
+    background-color: $f5-gray-color;
+    border: 1px solid $f5-gray-color;
+    border-radius: 4px;
+    color: $dark-gray-color;
+    padding: 8px 16px;
+    cursor: pointer;
+  }
+  button:hover {
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    background-color: $f5-gray-color;
+    border: 1px solid $light-gray-color;
+    color: $dark-gray-color;
+  }
+
 .modal {
   display: block;
   position: fixed;
@@ -53,7 +74,7 @@ export default {
   width: 100%;
   height: 100%;
   backdrop-filter: brightness(0.5);
-
+  
   > div {
     transform: translate(0%, 50%);
     display: flex;
@@ -65,6 +86,27 @@ export default {
     gap: 10px;
     padding: 8px 0;
     border-radius: 10px;
+
+    div:first-of-type {
+      display: flex;
+      width: calc(100% - 20px);
+      align-items: flex-end;
+  
+      button {
+        background-color: $f5-gray-color;
+        border: 1px solid $f5-gray-color;
+        border-radius: 4px;
+        color: $dark-gray-color;
+        padding: 8px 16px;
+        cursor: pointer;
+      }
+      button:hover {
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+        background-color: $f5-gray-color;
+        border: 1px solid $light-gray-color;
+        color: $dark-gray-color;
+      }
+    }
 
     > div {
       background-color: #fff;

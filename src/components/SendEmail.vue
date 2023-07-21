@@ -1,9 +1,10 @@
 <template>
-  <div>
-    <input v-model="email" type="email" placeholder="Email address" />
-    <input v-model="subject" type="text" placeholder="Subject" />
-    <textarea v-model="message" rows="5" placeholder="Message"></textarea>
-    <button @click="sendEmail">Send Email</button>
+  <div class="mail-form">
+    <input v-model="from" :class="{ 'is-invalid': (isFormSubmitted && !isValid(from)) }" type="text" placeholder="* From"/>
+    <input v-model="to" :class="{ 'is-invalid': (isFormSubmitted && !isValid(to)) }" type="text" placeholder="* To"/>
+    <textarea v-model="message" :class="{ 'is-invalid': (isFormSubmitted && !isValid(message)) }" rows="5" placeholder="* Message"></textarea>
+    <input v-model="email" type="email" placeholder="Your Email address" />
+    <button @click="submitForm">send mail</button>
   </div>
 </template>
 
@@ -13,19 +14,32 @@ import emailjs from "emailjs-com";
 
 export default {
   setup() {
+    const from = ref("");
+    const to = ref("");
     const email = ref("");
-    const subject = ref("");
     const message = ref("");
+    const isFormSubmitted = ref(false);
 
     const service_id = "service_upr8233";
     const template_id = "template_19ji81g";
     const user_id = "En7xiBgzyiJ2tmX6T";
 
-    function sendEmail() {
+    function isValid(value) {
+      return value.trim().length > 0;
+    }
+
+    function submitForm() {
+      isFormSubmitted.value = true;
+
+      if (!isValid(from.value) || !isValid(to.value) || !isValid(message.value) || !isValid(email.value)) {
+        alert("email 뺴고는 다 입력해주라~~!");
+        return;
+      }
+
       const templateParams = {
+        from_name: from.value,
+        to_name: to.value,
         from_email: email.value,
-        to_email: "hana825@naver.com",
-        subject: subject.value,
         message: message.value,
       };
 
@@ -33,22 +47,62 @@ export default {
         .send(service_id, template_id, templateParams, user_id)
         .then(({ status }) => {
           if (status === 200) {
-            alert("Email sent successfully!");
+            alert("전송되었습니다!");
           } else {
-            alert("Failed to send email. Please try again later.");
+            alert("전송에 실패했습니다!");
           }
         })
         .catch(() => {
-          alert("An error occurred. Please try again later.");
+          alert("에러발생!!!!!");
         });
     }
 
     return {
       email,
-      subject,
       message,
-      sendEmail,
+      to,
+      from,
+      submitForm,
+      isValid,
+      isFormSubmitted
     };
   },
 };
 </script>
+<style scoped lang="scss">
+@import "@/assets/css/common.scss";
+
+.mail-form {
+  padding-bottom: 10px;
+
+  input, textarea {
+    border: 1px solid $e-gray-color;
+    padding: 6px 8px;
+    border-radius: 4px;
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
+  .is-invalid {
+    border: 2px solid $main-color;
+  }
+
+  button {
+    margin-top: 10px;
+    background-color: $f5-gray-color;
+    border: 1px solid $f5-gray-color;
+    border-radius: 4px;
+    color: $dark-gray-color;
+    padding: 8px 16px;
+    cursor: pointer;
+  }
+  button:hover {
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    background-color: $f5-gray-color;
+    border: 1px solid $light-gray-color;
+    color: $dark-gray-color;
+  }
+}
+</style>
