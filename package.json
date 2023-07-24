@@ -41,7 +41,7 @@
     "showdown": "^2.1.0",
     "stream-browserify": "^3.0.0",
     "url": "^0.11.1",
-    "vue": "^3.2.13",
+    "vue": "^3.3.4",
     "vue-router": "^4.0.13",
     "vue-typed-js": "^0.1.2",
     "vue-typewriter": "^2.2.1",

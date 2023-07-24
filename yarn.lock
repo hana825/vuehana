@@ -6979,7 +6979,7 @@
   "resolved" "https://registry.npmjs.org/vue-writer/-/vue-writer-1.2.0.tgz"
   "version" "1.2.0"
 
-"vue@*", "vue@^2 || ^3.2.13", "vue@^3.0.3", "vue@^3.0.5", "vue@^3.2.0", "vue@^3.2.13", "vue@^3.2.45", "vue@>= 3.0.0 < 4", "vue@3.3.4":
+"vue@*", "vue@^2 || ^3.2.13", "vue@^3.0.3", "vue@^3.0.5", "vue@^3.2.0", "vue@^3.2.45", "vue@^3.3.4", "vue@>= 3.0.0 < 4", "vue@3.3.4":
   "integrity" "sha512-VTyEYn3yvIeY1Py0WaYGZsXnz3y5UnGi62GjVEqvEGPl6nxbOrCXbVOTQWBEJUqAyTUk2uJ5JLVnYJ6ZzGbrSw=="
   "resolved" "https://registry.npmjs.org/vue/-/vue-3.3.4.tgz"
   "version" "3.3.4"
