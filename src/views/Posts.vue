@@ -123,6 +123,7 @@ div.posts {
       font-size: 17px;
       color: $gray-color;
       background-color: $f5-gray-color;
+      margin: 0;
     }
     .postlist {
       display: none;
